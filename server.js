@@ -10,6 +10,7 @@ import multer from "multer";
 import { GoogleGenAI } from "@google/genai";
 import bcrypt from "bcrypt";
 import jwt from 'jsonwebtoken';
+import cookieParser from "cookie-parser";
 
 
 const ai = new GoogleGenAI({});
@@ -51,6 +52,7 @@ const User = mongoose.model("logindatas", userSchema);
 const app = express();
 app.use(express.json());
 app.use(cors({ origin: "http://localhost:3000", credentials: true }));
+app.use(cookieParser());
 
 
 
